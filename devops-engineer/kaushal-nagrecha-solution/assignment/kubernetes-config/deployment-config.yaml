@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assignment-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: homework
+  template:
+    metadata:
+      labels:
+        app: homework
+    spec:
+      containers:
+      - name: homework-app
+        image: darkpool/sample-go-server
+        ports:
+        - containerPort: 5050
